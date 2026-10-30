@@ -9,7 +9,7 @@ Public, documentation-only repo (MIT) describing how a host controls an Akai S90
 ## Current status
 
 - One commit: `61eb640` (2026-09-24), pushed (main == origin/main). No activity since.
-- The guide targets SuperOS-900 5.0. SuperOS-900 5.0.1 shipped 2026-10-01 (see ../AkaiS900/KNOWLEDGE.md) and is not reflected here.
+- The guide targets SuperOS-900 5.0. SuperOS-900 5.0.1 shipped 2026-10-01 (see ../KNOWLEDGE.md) and is not reflected here.
 
 ## Layout
 
