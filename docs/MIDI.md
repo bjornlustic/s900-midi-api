@@ -1,7 +1,7 @@
 # Controlling the Akai S900 over MIDI
 
 This is the developer guide for controlling an Akai S900 running
-SuperOS-900 5.0 from your own software. It covers everything a host can do
+SuperOS-900 5.0.1 from your own software. It covers everything a host can do
 through the MIDI IN and MIDI OUT jacks: play the sampler, move its
 parameters with controllers, press its panel keys, read its display, and
 read and write its RAM.
@@ -13,7 +13,7 @@ Akai's own service messages, present in the factory OS; superOS keeps all
 three and keeps them working while a take is armed. Nothing is installed on
 the sampler.
 
-Status legend, used throughout: **HW** = used on a real S900 running 5.0
+Status legend, used throughout: **HW** = used on a real S900 running 5.0 (HW and EMU tags were earned on 5.0; section 7 addresses were rechecked in the 5.0.1 build)
 through a USB MIDI interface (an automated rig that armed and triggered 44
 recordings over MIDI with no hang), **EMU** = proven against the 5.0
 firmware running in an emulator, **CODE** = read from the firmware code.
@@ -48,7 +48,7 @@ Contents:
 
 ## 2. Playing and parameters (channel messages)
 
-Status: from the SuperOS-900 5.0 manual.
+Status: from the SuperOS-900 5.0 manual, except CC 89, which is CODE (read from the 5.0.1 firmware, not in the manual).
 
 - **Notes:** note on and off with velocity, on the basic channel and the
   keygroups' channel offsets.
@@ -76,6 +76,7 @@ Status: from the SuperOS-900 5.0 manual.
 | 84 | transwave depth (EDIT PROGRAM `*13` EndLFO) | 0-99 |
 | 85 | filter envelope amount | 0-100 = -50..+50 |
 | 86 | LFO desync | 64 and up = ON |
+| 89 | transwave wheel mode (per keygroup, saved with the program). CODE | 64 and up = S950 wheel model: the mod wheel is centred on the loop, scaled by the transwave depth, no LFO; below 64 = the 5.0 model (default) |
 
 ### Assignable controllers (UTILITY `*01` and `*02`)
 
@@ -303,11 +304,11 @@ the disk. Read the display before you send it.
 
 ## 7. Useful addresses
 
-SuperOS-900 5.0. Other versions differ.
+SuperOS-900 5.0.1. Every address below was checked against the 5.0.1 build (`bceba4c`, `57b4330`) and is unchanged from 5.0. Other versions differ.
 
 | address | what it is | status |
 |---|---|---|
-| `0x58AE`, 14 | service op table, reads `00` to `0E`: the liveness probe | EMU |
+| `0x58AE`, 14 | service op table, reads `00` to `0A`, `0C`, `0D`, `0E` (no `0B`): the liveness probe | EMU |
 | `0x9562`, 1 | key cell (section 6) | HW |
 | `0x9571`, 1 | section lamps, one bit per running section: bit 0 EDIT PROGRAM, 1 EDIT SAMPLE, 2 REC, 3 PLAY, 4 MIDI, 5 UTILITY, 6 DISK. Read only | HW |
 | `0x9590`, 2 | the current page's field record. Each page has its own value: read it once on each page you drive and use it to tell where you are | HW |
