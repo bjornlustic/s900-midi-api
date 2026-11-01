@@ -1,6 +1,6 @@
 # Akai S900 MIDI API
 
-How to control an Akai S900 running **SuperOS-900 5.0** from your own
+How to control an Akai S900 running **SuperOS-900 5.0.1** from your own
 software over a MIDI cable: play it, move its parameters, press its panel
 keys, read its display, and read and write its memory while it runs.
 
@@ -13,8 +13,8 @@ OS image or tool ships here.
 
 ## Requirements
 
-- An Akai S900 running SuperOS-900 5.0, from <https://superos303.com>.
-  Addresses in the guide are for 5.0; other versions differ.
+- An Akai S900 running SuperOS-900 5.0.1, from <https://superos303.com>.
+  Addresses in the guide are for 5.0.1 (unchanged from 5.0); other versions differ.
 - A MIDI interface cabled both ways: your OUT to the S900's MIDI IN, the
   S900's MIDI OUT to your IN. Replies come back on the S900's OUT.
 
