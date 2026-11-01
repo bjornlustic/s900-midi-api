@@ -1,6 +1,6 @@
 # s900-midi-api: knowledge
 
-Consolidated 2026-10-13 from the repo contents and git history.
+Refreshed 2026-10-31 from the repo contents and git history.
 
 ## What this is
 
@@ -8,7 +8,7 @@ Public, documentation-only repo (MIT) describing how a host controls an Akai S90
 
 ## Current status
 
-- One commit: `61eb640` (2026-09-24), pushed (main == origin/main). No activity since.
+- Content commit `61eb640` (2026-09-24). Two path-only commits on 2026-10-29 (`1171f3a`, `b8aa145`) are not pushed (main is ahead of origin/main by 2). No content change since.
 - The guide targets SuperOS-900 5.0. SuperOS-900 5.0.1 shipped 2026-10-01 (see ../KNOWLEDGE.md) and is not reflected here.
 
 ## Layout
